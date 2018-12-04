@@ -1,0 +1,5 @@
+find_package(OpenCV 3.4)
+include_directories(./include)
+file(GLOB SRC src/*.cpp)
+add_library(PlateAssist SHARED ${SRC})
+target_link_libraries(PlateAssist ${OpenCV_LIBS})
