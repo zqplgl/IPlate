@@ -124,6 +124,9 @@ namespace Vehicle
 			Mat im_threshold = cv::Mat::zeros(im_gray.size(), CV_8U);
 			if(flag==SINGLE || flag==SINGLE_NOT)
                 util::NiblackSauvolaWolfJolion(im_gray, im_threshold, SAUVOLA, win, win, alpha * k);
+            else
+                cv::adaptiveThreshold(im_gray,im_threshold,255,cv::ADAPTIVE_THRESH_MEAN_C,cv::THRESH_BINARY,window_size,k);
+
 			util::clearLiuDingOnlyWhite(im_threshold);
 
 			cv::findContours(im_threshold, contours, cv::RETR_EXTERNAL, cv::CHAIN_APPROX_SIMPLE);

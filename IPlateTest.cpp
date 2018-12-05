@@ -25,7 +25,7 @@ int main()
     string model_dir = "/home/zqp/install_lib/models";
     IPlate *detector = CreateIPlateRecognize(model_dir,0);
 
-    string pic_dir = "/home/zqp/pic/plate";
+    string pic_dir = "/home/zqp/pic/plate/white2";
     vector<string> impaths;
     getImPath(pic_dir,impaths);
 
