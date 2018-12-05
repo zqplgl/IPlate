@@ -92,7 +92,7 @@ namespace Vehicle
 
         cv::Mat plate = im(zone.zone).clone();
         cv::Mat plate_finetuned = fineTuning_->fineTuningVertical(plate,zone.cls);
-#if 1
+#if 0
         imshow("im_plate",plate);
         imshow("im_finetuned",plate_finetuned);
 //            cv::waitKey(0);

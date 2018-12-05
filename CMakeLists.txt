@@ -6,7 +6,7 @@ set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${PROJECT_SOURCE_DIR}/lib)
 include_directories(${PROJECT_SOURCE_DIR}/include)
 include_directories(${PROJECT_SOURCE_DIR}/../IObjZoneDetect/include/)
 include_directories(${PROJECT_SOURCE_DIR}/../IlstmCharsRecognize/include/)
-
+include_directories(/usr/include/python2.7)
 #add_subdirectory(${PROJECT_SOURCE_DIR}/PlateAssist)
 
 find_package(OpenCV 3.4)
@@ -18,8 +18,9 @@ message(STATUS Found IObjZoneDetect_LIB:  ${IObjZoneDetect_LIB})
 file(GLOB SRC src/*.cpp)
 add_library(IPlate SHARED ${SRC})
 target_link_libraries(IPlate ${OpenCV_LIBS} ${Lstm_LIB} ${IObjZoneDetect_LIB})
-#add_library(_VehiclePlate SHARED python/PyIPlateRecognize.cpp)
-#target_link_libraries(_VehiclePlate IPlateRecognize ${Boostpython_LIB})
+
+add_library(_VehiclePlate SHARED python/PyIPlateRecognize.cpp)
+target_link_libraries(_VehiclePlate IPlate ${Boostpython_LIB})
 
 add_executable(main IPlateTest.cpp)
 target_link_libraries(main IPlate)
