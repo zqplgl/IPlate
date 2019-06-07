@@ -6,7 +6,7 @@ set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${PROJECT_SOURCE_DIR}/lib)
 include_directories(${PROJECT_SOURCE_DIR}/include)
 include_directories(${PROJECT_SOURCE_DIR}/../IObjZoneDetect/include/)
 include_directories(${PROJECT_SOURCE_DIR}/../IlstmCharsRecognize/include/)
-include_directories(/usr/include/python2.7)
+include_directories(/usr/include/python3.5)
 #add_subdirectory(${PROJECT_SOURCE_DIR}/PlateAssist)
 
 find_package(OpenCV 3.4)
@@ -14,6 +14,8 @@ find_library(Lstm_LIB IlstmCharsRecognize ${PROJECT_SOURCE_DIR}/../IlstmCharsRec
 message(STATUS Found Lstm_LIB:  ${Lstm_LIB})
 find_library(IObjZoneDetect_LIB IObjZoneDetect ${PROJECT_SOURCE_DIR}/../IObjZoneDetect/lib)
 message(STATUS Found IObjZoneDetect_LIB:  ${IObjZoneDetect_LIB})
+find_library(Boostpython_LIB  boost_python3)
+message(STATUS Found Boostpython_LIB:  ${Boostpython_LIB})
 
 file(GLOB SRC src/*.cpp)
 add_library(IPlate SHARED ${SRC})
